@@ -21,7 +21,11 @@ _: {
   den.aspects.ssh.homeManager = _: {
     programs.ssh = {
       enable = true;
-      enableDefaultConfig = false;
+      addKeysToAgent = "yes";
+      matchBlocks."*" = {
+        addKeysToAgent = "yes";
+        identityFile = [ "~/.ssh/id_ed25519" ];
+      };
     };
   };
 }
