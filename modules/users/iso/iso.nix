@@ -21,6 +21,8 @@
       den.aspects.codex
       den.aspects.bitwarden-cli
       den.aspects.ghostty
+      den.aspects.devenv
+      #den.aspects.tidal
 
       # den.aspects.android
 
@@ -39,7 +41,7 @@
         sops.secrets."users/iso/password".neededForUsers = true;
 
         users.users.iso = {
-	  isNormalUser = true;
+          isNormalUser = true;
           hashedPasswordFile = config.sops.secrets."users/iso/password".path;
           openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8jdoPNyJHT2LriBgmVYKgLut6Hx7xiKfosP7EDZtLc iso@lappers"

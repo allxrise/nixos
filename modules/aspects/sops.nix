@@ -11,7 +11,7 @@
       {
         imports = [ inputs.sops-nix.nixosModules.sops ];
         sops = {
-          defaultSopsFile = "${self}/secrets/hosts/lappers.yaml";
+          defaultSopsFile = "${self}/secrets/hosts/${config.networking.hostName}.yaml";
           age.keyFile = "/persist/var/lib/sops-nix/key.txt";
           age.generateKey = false;
         };
@@ -22,7 +22,7 @@
       {
         imports = [ inputs.sops-nix.homeManagerModules.sops ];
         sops = {
-          defaultSopsFile = "${self}/secrets/users/iso.yaml";
+          defaultSopsFile = "${self}/secrets/users/${config.home.username}.yaml";
           age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
           age.generateKey = false;
         };

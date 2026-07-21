@@ -1,8 +1,7 @@
-{ lib, inputs, ... }:
-{
+_: {
   den.aspects.system.linux-kernel = {
     nixos =
-      { host, pkgs, ... }:
+      { pkgs, ... }:
       {
         boot.kernelPackages = pkgs.linuxPackages_zen;
       };
