@@ -1,9 +1,19 @@
 _: {
-  den.aspects.graphics.nixos = _: {
+  den.aspects.graphics.nixos = { pkgs, ... }: {
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        intel-vaapi-driver
+      ];
     };
+
+    environment.sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
+
+    boot.kernelParams = [ "i915.enable_guc=3" ];
 
     services.xserver.videoDrivers = [
       "modesetting"
