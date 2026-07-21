@@ -10,7 +10,7 @@ _: {
     };
 
     environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
+      LIBVA_DRIVER_NAME = "i915";
     };
 
     boot.kernelParams = [ "i915.enable_guc=3" ];
